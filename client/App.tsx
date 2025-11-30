@@ -1,6 +1,8 @@
 import React from "react";
+
 import { Hello } from "./components/Hello";
 
+import "./styles/global.scss";
 import "./styles/global.css";
 
 interface AppProps {

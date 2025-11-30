@@ -1,4 +1,5 @@
 import { useSSRStore } from "@taujs/react";
+
 import "../styles/Hello.scss";
 
 interface HomePageData {

@@ -1,73 +1,83 @@
-$color_1: #666;
-$color_2: #888;
-$color_3: #333;
-$color_4: white;
+@use "./variables" as *;
 
-.home-container {
-  background: white;
-  border-radius: 16px;
-  padding: 48px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-}
-.home-title {
-  font-size: 48px;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.home-subtitle {
-  font-size: 18px;
-  color: $color_1;
-  margin-bottom: 24px;
-}
-.home-info {
-  padding: 16px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  margin-bottom: 24px;
-  p {
-    font-size: 14px;
-    color: $color_2;
-    margin: 0;
-    + {
-      p {
-        margin-top: 8px;
+.home {
+  &-container {
+    background: $positive;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba($negative, 0.3);
+    max-width: 600px;
+    padding: 48px;
+    text-align: center;
+    width: 100%;
+  }
+
+  &-title {
+    background: linear-gradient(135deg, $primary 0%, $color_3 100%);
+    background-clip: text;
+    font-size: 3rem;
+    margin-bottom: 16px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-subtitle {
+    font-size: 1.125rem;
+    color: $color_1;
+    margin-bottom: 24px;
+  }
+
+  &-info {
+    padding: 16px;
+    background: $color_4;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    p {
+      font-size: 0.875rem;
+      color: $color_2;
+      margin: 0;
+
+      + {
+        p {
+          margin-top: 8px;
+        }
       }
     }
+
+    strong {
+      color: $secondary;
+    }
   }
-  strong {
-    color: $color_3;
+
+  &-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 }
-.home-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
+
 .btn {
-  padding: 12px 24px;
-  color: $color_4;
-  text-decoration: none;
   border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: transform 0.2s, box-shadow 0.2s;
+  color: $positive;
   display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+
   &:hover {
+    box-shadow: 0 4px 12px rgba($negative, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
-}
-.btn-primary {
-  background: #667eea;
-}
-.btn-secondary {
-  background: #333;
+
+  &-primary {
+    background: $primary;
+  }
+
+  &-secondary {
+    background: $secondary;
+  }
 }

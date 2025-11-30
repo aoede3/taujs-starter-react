@@ -1,4 +1,5 @@
 import { hydrateApp } from "@taujs/react";
+
 import { App } from "./App";
 
 hydrateApp({
@@ -7,7 +8,5 @@ hydrateApp({
   ),
   // rootElementId: "root",
   enableDebug: import.meta.env.DEV,
-  onSuccess: () => {
-    console.log("✓ App hydrated successfully");
-  },
+  onSuccess: () => console.log("✓ App hydrated successfully"),
 });
