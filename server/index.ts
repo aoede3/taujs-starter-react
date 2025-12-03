@@ -1,19 +1,16 @@
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import Fastify from "fastify";
-import fastifyStatic from "@fastify/static";
 import { createServer } from "@taujs/server";
 
 import config from "../taujs.config.js";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
 const isDev = process.env.NODE_ENV === "development";
 
+// Auto set as below if `clientRoot` omitted. Shown here for clarity.
 const clientRoot = isDev
-  ? path.resolve(__dirname, "../client") // source
-  : path.resolve(__dirname, "../dist/client"); // build
+  ? path.resolve(process.cwd(), "client") // source
+  : path.resolve(process.cwd(), "dist/client"); // build
 
 const startServer = async () => {
   try {
@@ -23,15 +20,6 @@ const startServer = async () => {
       fastify,
       config,
       clientRoot,
-      staticAssets: isDev
-        ? false
-        : {
-            plugin: fastifyStatic,
-            options: {
-              root: clientRoot,
-              prefix: "/", // required: Vite asset URLs start with /
-            },
-          },
       debug: { ssr: isDev },
     });
 
